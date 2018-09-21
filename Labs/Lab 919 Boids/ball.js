@@ -5,7 +5,7 @@
 **   Ethan Nichols
 **   Aug 21, 2018
 */
-function Ball(location, velocity, radius, col){
+function Ball(loc, vel, radius, col){
 
   // Instance variables
   this.loc = location;
@@ -24,23 +24,14 @@ function Ball(location, velocity, radius, col){
   // This function changes the location of the ball
   // by adding speed to x and
   this.update = function() {
-    if(this != b1) {
-      var d = this.loc.dist(b1.loc)
-      if (d > 100) {
-        var steeringforce = p5.Vector.sub(b1.loc, this.loc);
-        steeringforce.normalize();
-        steeringforce.mult(0.05);
-        this.vel.add(steeringforce);
-      }
-      if (d < 50) {
-        var steeringforce = p5.Vector.sub(this.loc, b1.loc);
-        steeringforce.normalize();
-        steeringforce.mult(0.05);
-        this.vel.add(steeringforce);
-      }
+    var steeringForce = p5.Vector.sub(b1.loc, this.loc);
+    if (this !== b1) {
+      steeringForce.normalize();
+      steeringForce.mult(0.05);
+      this.vel.add(steeringForce);
+    }
       this.loc.add(this.vel);
     }
-  }
 
   //checkEdges() reverses speed when the ball touches an edge
   this.checkEdges = function(){
