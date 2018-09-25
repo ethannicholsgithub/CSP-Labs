@@ -7,6 +7,8 @@ function setup() {
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);
   background(20,20,20);
+  location = createVector(0, 0);
+  color = color(random(255, 0), random(255, 0), random(255, 0));
   loadBoids(50);
 
 }
@@ -26,8 +28,8 @@ function loadBoids(numBoids){
         var vel = createVector(random(-3,3), random(-3,3));
         var radius = 20;
         var col = color(random(255), random(255), random(255));
-
-        boids.push(new Boid(loc, vel, radius, col));
+        var b = new Boid(loc, vel, radius, col);
+        boids.push(b);
 
     }
 

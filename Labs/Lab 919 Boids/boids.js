@@ -12,7 +12,7 @@ function Boid(loc, vel, radius, col){
   this.vel = vel;
   this.rad = radius;
   this.col = col;
-  this.acc = createVector(0, .1);
+  this.acc = createVector(0, 2);
 
   // This function calls other functions
   this.run = function(){
