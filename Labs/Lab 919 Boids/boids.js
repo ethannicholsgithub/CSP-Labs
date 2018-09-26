@@ -20,7 +20,7 @@ function Boid(loc, vel, radius, col){
     this.update();
     this.render();
   }
-
+  
   // This function changes the location of the Boid
   // by adding speed to x and
   this.update = function() {
