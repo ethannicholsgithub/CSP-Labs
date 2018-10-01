@@ -5,12 +5,11 @@
 **   Ethan Nichols
 **   Aug 21, 2018
 */
-function Boid(loc, vel, radius, col){
+function Boid(loc, vel, col){
 
   // Instance variables
   this.loc = loc;
   this.vel = vel;
-  this.rad = radius;
   this.col = col;
   this.acc = createVector(0, 2);
 
@@ -20,11 +19,10 @@ function Boid(loc, vel, radius, col){
     this.update();
     this.render();
   }
-  
+
   // This function changes the location of the Boid
   // by adding speed to x and
   this.update = function() {
-
     }
 
   //checkEdges() reverses speed when the Boid touches an edge

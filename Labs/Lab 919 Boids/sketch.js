@@ -15,7 +15,7 @@ function setup() {
 
 function draw() {
   background(20, 20, 20, 1);
-  for(var i = 0; i < boids.length; i = i + 1){
+  for(var i = 0; i < numBoids; i = i + 1){
       boids[i].run();
   }
 }
@@ -26,9 +26,8 @@ function loadBoids(numBoids){
 
         var loc = createVector(random(width), random(height));
         var vel = createVector(random(-3,3), random(-3,3));
-        var radius = 20;
         var col = color(random(255), random(255), random(255));
-        var b = new Boid(loc, vel, radius, col);
+        var b = new Boid(loc, vel, col);
         boids.push(b);
 
     }
