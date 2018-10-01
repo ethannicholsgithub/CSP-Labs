@@ -23,7 +23,7 @@ function Boid(loc, vel, col){
   // This function changes the location of the Boid
   // by adding speed to x and
   this.update = function() {
-    }
+  }
 
   //checkEdges() reverses speed when the Boid touches an edge
   this.checkEdges = function(){
