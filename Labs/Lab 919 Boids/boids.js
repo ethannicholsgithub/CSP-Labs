@@ -1,25 +1,33 @@
+//boid function
 function Boids(loc, vel, clr) {
+// defining variables
   this.loc = loc;
   this.vel = vel;
   this.clr = clr;
   this.acc = createVector(0, .1);
 
+//runs the whole boids code when function is called
   this.run = function(){
     this.checkEdges();
     this.update();
     this.render();
   }
 
+//repulsion and movement
   this.update = function() {
-    var steeringForce = p5.Vector.sub(b1.loc, this.loc);
+    var steeringForce = p5.Vector.sub(this.loc, b1.loc);
     if(this !== b1){
       steeringForce.normalize();
       steeringForce.mult(0.09);
       this.vel.add(steeringForce);
     }
-    this.acc.add(this.vel);
+    this.loc.add(this.vel);
+    var mouseLoc = createVector(mouseX, mouseY);
+    b1.loc = p5.Vector.lerp(mouseLoc,this.loc);
+    var dist = this.loc.dist(vel);
   }
 
+//makes boids bounce off of edges
   this.checkEdges = function(){
     if(this.loc.x < 0) this.vel.x = -this.vel.x;
     if(this.loc.x > width) this.vel.x = -this.vel.x;
@@ -27,6 +35,7 @@ function Boids(loc, vel, clr) {
     if(this.loc.y > width) this.vel.y = -this.vel.y;
   }
 
+// gives shape and color of boids
   this.render = function() {
     fill(this.clr);
     push()
