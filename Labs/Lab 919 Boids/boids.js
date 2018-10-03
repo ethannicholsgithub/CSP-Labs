@@ -11,7 +11,13 @@ function Boids(loc, vel, clr) {
   }
 
   this.update = function() {
-
+    var steeringForce = p5.Vector.sub(b1.loc, this.loc);
+    if(this !== b1){
+      steeringForce.normalize();
+      steeringForce.mult(0.09);
+      this.vel.add(steeringForce);
+    }
+    this.acc.add(this.vel);
   }
 
   this.checkEdges = function(){
@@ -22,7 +28,7 @@ function Boids(loc, vel, clr) {
   }
 
   this.render = function() {
-    fill(this.col);
+    fill(this.clr);
     push()
       translate(this.loc.x, this.loc.y);
       rotate(0);
