@@ -1,16 +1,37 @@
 
-//  This is a comment
-//  The setup function function is called once when your program begins
-function setup() {
-  var cnv = createCanvas(800, 800);
-  cnv.position((windowWidth-width)/2, 30);
-  background(5, 5, 5);
-  fill(200, 30, 150);
 
+function Ball(loc, vel, clr) {
 
-}
+  this.loc = loc;
+  this.vel = vel;
+  this.clr = clr;
+  this.acc = createVector(0, 0.1)
 
-//  The draw function is called @ 30 fps
-function draw() {
+  this.run = function() {
+    this.checkEdges();
+    this.render();
+    this.update();
+  }
 
+  this.checkEdges = function() {
+    if(this.loc.x < 0) this.vel.x = -this.vel.x;
+    if(this.loc.x > width) this.vel.x = -this.vel.x;
+    if(this.loc.y < 0) this.vel.y = -this.vel.y;
+    if(this.loc.y > width) this.vel.y = -this.vel.y;
+  }
+
+  this.update = function() {
+    this.loc.x = this.loc.x + this.vel.x;
+    this.loc.y = this.loc.y + this.vel.y;
+    this.vel.add(this.acc);
+    this.loc.add(this.vel);
+  }
+
+  this.render = function() {
+    fill(this.clr);
+    push()
+      translate(this.loc.x, this.loc.y);
+      rect(10, 10, 10, 10);
+    pop()
+  }
 }
