@@ -23,7 +23,7 @@ function Boids(loc, vel, clr) {
       this.vel.add(steeringForce);
     }
     this.loc.add(this.vel);
-    var mouseLoc = createVector(mouseX + mouseY, mouseY - mouseX);
+    var mouseLoc = createVector(mouseX, mouseY);
     b1.loc = p5.Vector.lerp(mouseLoc ,this.loc);
   }
 
