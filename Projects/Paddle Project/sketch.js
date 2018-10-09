@@ -2,20 +2,21 @@ var balls = [];
 var paddle = [];
 
 function setup() {
+  noCursor();
   //created the canvas
-  var cnv = createCanvas(1200, 800);
+  var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);
   background(5, 5, 5);
   fill(200, 30, 150);
   //these two lines define how many balls to load
-  var n = 50;
+  var n = 100;
   loadBalls(n);
   loadPaddle(1);
 }
 
 function draw() {
   //redraws the background with a certain opacity to give that trail as the ball is moving
-  background(5, 5, 5, 20)
+  background(5, 5, 5)
   //gives the paddle a shape
   for (var i = 0; i < paddle.length; i++) {
     paddle[i].run();
@@ -29,18 +30,20 @@ function draw() {
 //defines loadBalls
 function loadBalls(numBalls) {
   for (var i = 0; i < numBalls; i++) {
-    loc = createVector(random(width), random(300, 0));
+    loc = createVector(random(width), random(100, 0));
     vel = createVector(random(-3, 3), random(-3, 3));
     clr = color(random(0, 255), random(0, 255), random(0, 255));
     var b = new Ball(loc, vel, clr);
     balls.push(b);
   }
+
+// defines loadPaddle
 }
   function loadPaddle() {
     for (var i = 0; i < 1; i++) {
       loc = createVector(random(width), random(300, 0));
       vel = createVector(random(-3, 3), random(-3, 3));
-      clr2 = color(random(0, 255), random(0, 255), random(0, 255));
+      clr2 = color(255, 0 ,0);
       var b = new Paddle(loc, vel, clr2);
       paddle.push(b);
   }
