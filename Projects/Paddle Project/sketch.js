@@ -32,7 +32,8 @@ function draw() {
   function checkCollision(paddle, balls) {
 
     for(let ball in balls) {
-
+      if() {
+      }
     }
 }
 
@@ -51,8 +52,8 @@ function loadBalls(numBalls) {
     for (let i = 0; i < 1; i++) {
       let loc = createVector(random(width), random(300, 0));
       let vel = createVector(random(-3, 3), random(-3, 3));
-      let clr2 = color(random(0, 255), random(0, 255), random(0, 255));
-      let b = new Paddle(loc, vel, clr2);
-      paddle.push(b);
+      let clr2 = color(255, 0, 0);
+      let ba = new Paddle(loc, vel, clr2);
+      paddle.push(ba);
   }
 }

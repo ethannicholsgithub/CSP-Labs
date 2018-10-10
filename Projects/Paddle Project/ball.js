@@ -6,6 +6,7 @@ function Ball(loc, vel, clr) {
   this.loc = loc; //location
   this.vel = vel; //velocity
   this.clr = clr; //color
+  radius = 10;
   this.acc = createVector(0, 0.1)
 
   // When the run function is called all of the other functions are called and runs
@@ -36,7 +37,7 @@ function Ball(loc, vel, clr) {
   this.render = function() {
     fill(this.clr);
     push()
-      ellipse(this.loc.x, this.loc.y, 10, 10);
+      ellipse(this.loc.x, this.loc.y, radius, radius);
     pop()
   }
 }
