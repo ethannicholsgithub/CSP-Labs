@@ -2,7 +2,7 @@
 // Ball function
 function Ball(loc, vel, clr) {
 
-  // variables for the function
+  // letiables for the function
   this.loc = loc; //location
   this.vel = vel; //velocity
   this.clr = clr; //color
@@ -36,15 +36,14 @@ function Ball(loc, vel, clr) {
   this.render = function() {
     fill(this.clr);
     push()
-      translate(this.loc.x, this.loc.y);
-      rect(10, 10, 10, 10);
+      ellipse(this.loc.x, this.loc.y, 10, 10);
     pop()
   }
 }
 
 function Paddle(loc, vel, clr2){
 
-  // variables for the function
+  // letiables for the function
   this.loc = loc; //location
   this.vel = vel; //velocity
   this.clr = clr2; //color
@@ -59,17 +58,14 @@ function Paddle(loc, vel, clr2){
   // The update function updates the location / velocity of both the paddle and the objects
   this.update = function() {
     // This code has the paddle move along with the mouse
-    var mouseLoc = createVector(mouseX, mouseY);
-    paddle.loc = p5.Vector.lerp(mouseLoc,this.loc);
-    var dist = this.loc.dist(vel);
+    this.loc.x = mouseX;
   }
 
   // Gives the object a shape and color
   this.render = function() {
     fill(this.clr);
     push()
-      translate(this.loc.x, this.loc.y);
-      rect(10, 10, 10, 10);
+      rect(this.loc.x, windowHeight - 240, 100, 10);
     pop()
   }
 
