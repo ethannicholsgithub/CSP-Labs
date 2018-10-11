@@ -2,12 +2,14 @@ let balls = [];
 let paddle = [];
 
 function setup() {
+  // hides mouse
   noCursor();
   //created the canvas
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);
   background(5, 5, 5);
   fill(200, 30, 150);
+
   //these two lines define how many balls to load
   let n = 50;
   loadBalls(n);
@@ -17,23 +19,21 @@ function setup() {
 function draw() {
   //redraws the background with a certain opacity to give that trail as the ball is moving
   background(5, 5, 5)
-  //gives the paddle a shape
+
+  // calls the paddle array
   for (let i = 0; i < paddle.length; i++) {
     paddle[i].run();
   }
-  //calls the run function and checks how many balls were created
+
+  // calls the balls array
   for (let i = 0; i < balls.length; i++) {
     balls[i].run();
   }
-
   checkCollision();
 }
 
   function checkCollision(paddle, balls) {
-
-    for(let ball in balls) {
-      if() {
-      }
+    for(let Ball in balls) {
     }
 }
 

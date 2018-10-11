@@ -1,6 +1,3 @@
-
-var w = 40;
-
 // Ball function
 function Ball(loc, vel, clr) {
 
@@ -13,9 +10,9 @@ function Ball(loc, vel, clr) {
 
   // When the run function is called all of the other functions are called and runs
   this.run = function() {
+    this.update();
     this.checkEdges();
     this.render();
-    this.update();
   }
 
   // checkEdges function checks if the object has hit a wall and bounces it in the right direction
@@ -54,12 +51,12 @@ function Paddle(loc, vel, clr2){
   this.loc = loc; //location
   this.vel = vel; //velocity
   this.clr2 = clr2; //color (specifically for the paddle)
-  this.acc = createVector(0, 0.1)
+  this.acc = createVector(0, 0.1);
 
   // When the run function is called all of the other functions are called and runs
   this.run = function() {
-    this.render();
     this.update();
+    this.render();
   }
 
   // The update function updates the location / velocity of both the paddle and the objects
