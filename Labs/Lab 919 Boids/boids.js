@@ -15,16 +15,16 @@ function Boids(loc, vel, clr) {
 
 //repulsion and movement
   this.update = function() {
+    var dist = this.loc.dist(vel);
     var steeringForce = p5.Vector.sub(this.loc, b1.loc);
-    if(this !== b1){
+    if(dist = 1){
       steeringForce.normalize();
       steeringForce.mult(0.09);
       this.vel.add(steeringForce);
     }
     this.loc.add(this.vel);
     var mouseLoc = createVector(mouseX, mouseY);
-    b1.loc = p5.Vector.lerp(mouseLoc,this.loc);
-    var dist = this.loc.dist(vel);
+    b1.loc = p5.Vector.lerp(mouseLoc ,this.loc);
   }
 
 //makes boids bounce off of edges
@@ -40,8 +40,8 @@ function Boids(loc, vel, clr) {
     fill(this.clr);
     push()
       translate(this.loc.x, this.loc.y);
-      rotate(0);
-      triangle(-15, 0, 15, 0, 0, -15);
+      rotate(this.loc);
+      triangle(-15, 0, 15, 0, 0, -45);
     pop()
   }
 }

@@ -8,12 +8,8 @@ function setup() {
   cnv.position((windowWidth-width)/2, 30);
   background(5, 5, 5);
   fill(200, 30, 150);
-  b1 = new Boids(createVector(width / 2, height / 2),
-                createVector(mouseX, mouseY),
-                25,
-                color(0, 255, 0));
-  
-  var n = 50;
+  b1 = new Boids(createVector(width / 2, height / 2), createVector(mouseX, mouseY), 25, color(0255, 255, 255));
+  var n = 100;
   loadBoids(n);
 
 }
@@ -30,7 +26,7 @@ function draw() {
 function loadBoids(numBoids) {
   for(var i = 0; i < numBoids; i++){
     var loc = createVector(random(width), random(height));
-    var vel = createVector(random(-3, 3), random(-3, 3));
+    var vel = createVector(random(-2, 2), random(-2, 2));
     var clr = color(random(0, 255), random(0, 255), random(0, 255));
     var b = new Boids(loc, vel, clr);
     boids.push(b);
