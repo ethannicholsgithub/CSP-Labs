@@ -42,7 +42,7 @@ function Ball(loc, vel, clr) {
 }
 
 
-
+var w = 20
 
 // Paddle function
 function Paddle(loc, vel, clr2){
@@ -55,8 +55,9 @@ function Paddle(loc, vel, clr2){
 
   // When the run function is called all of the other functions are called and runs
   this.run = function() {
-    this.update();
     this.render();
+    this.update();
+
   }
 
   // The update function updates the location / velocity of both the paddle and the objects
@@ -67,10 +68,11 @@ function Paddle(loc, vel, clr2){
 
   // Gives the object a shape and color
   this.render = function() {
+    rect(this.loc.x, windowHeight/2, w, 10);
     fill(this.clr2);
-    push()
-      rect(this.loc.x, windowHeight - 240, 100, 10);
-    pop()
+    // push()
+
+    //pop()
   }
 
 }
