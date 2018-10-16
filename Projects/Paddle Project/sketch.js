@@ -1,5 +1,5 @@
-let balls = [];
-let paddle = [];
+var balls = [];
+var paddle;
 
 function setup() {
   // hides mouse
@@ -21,22 +21,26 @@ function draw() {
   background(5, 5, 5)
 
   // calls the paddle array
-  for (let i = 0; i < paddle.length; i++) {
-    paddle[i].run();
-  }
+
+    paddle.run();
+
   //paddle[0].run();
 
   // calls the balls array
   for (let i = 0; i < balls.length; i++) {
     balls[i].run();
   }
-  checkCollision(paddle, balls);
+  checkCollision();
 }
 
-  function checkCollision(paddle, balls) {
+  function checkCollision() {
     for(let i = 0; i < balls.length; i++) {
-      if(balls[i].loc.x > paddle.loc.x && balls[i].loc.x < (paddle.loc.x + w) && balls[i].loc.y > (paddle.loc.y) && balls[i].loc.y < (paddle.loc.y + h)) {
-        balls[i].splice();
+      if(balls[i].loc.x > paddle.loc.x &&
+        balls[i].loc.x < (paddle.loc.x + paddle.wid) &&
+        balls[i].loc.y > (paddle.loc.y) &&
+        balls[i].loc.y < (paddle.loc.y + paddle.ht)) {
+
+        balls.splice(i, 1);
       }
     }
 }
@@ -54,13 +58,13 @@ function loadBalls(numBalls) {
 // defines loadPaddle
 }
 
-  function loadPaddle(numPaddles) {
-    for (let i = 0; i < numPaddles; i++) {
+  function loadPaddle() {
+
       let loc = createVector(random(width), random(300, 0));
       let vel = createVector(random(-3, 3), random(-3, 3));
       let clr2 = color(255, 0, 0);
-      let ba = new Paddle(loc, vel, clr2);
-      console.log("paddle created" + loc);
-      paddle.push(ba);
-  }
+      paddle = new Paddle(loc, clr2);
+
+
+
 }

@@ -39,40 +39,6 @@ function Ball(loc, vel, clr) {
       ellipse(this.loc.x, this.loc.y, radius, radius);
     pop()
   }
-}
 
-
-var w = 20
-
-// Paddle function
-function Paddle(loc, vel, clr2){
-
-  // letiables for the function
-  this.loc = loc; //location
-  this.vel = vel; //velocity
-  this.clr2 = clr2; //color (specifically for the paddle)
-  this.acc = createVector(0, 0.1);
-
-  // When the run function is called all of the other functions are called and runs
-  this.run = function() {
-    this.render();
-    this.update();
-
-  }
-
-  // The update function updates the location / velocity of both the paddle and the objects
-  this.update = function() {
-    // This code has the paddle move along with the mouse
-    this.loc.x = mouseX;
-  }
-
-  // Gives the object a shape and color
-  this.render = function() {
-    rect(this.loc.x, windowHeight/2, w, 10);
-    fill(this.clr2);
-    // push()
-
-    //pop()
-  }
-
+  
 }
