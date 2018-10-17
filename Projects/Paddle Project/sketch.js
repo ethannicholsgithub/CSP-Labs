@@ -32,12 +32,16 @@
     function checkCollision() {
       for(let i = 0; i < balls.length; i++) {
         if(balls[i].loc.x > paddle.loc.x &&
-          balls[i].loc.x < (paddle.loc.x + paddle.wid) &&
+          balls[i].loc.x < (paddle.loc.x + w) &&
           balls[i].loc.y > (paddle.loc.y) &&
-          balls[i].loc.y < (paddle.loc.y + paddle.ht)) {
+          balls[i].loc.y < (paddle.loc.y + h)) {
 
               balls.splice(i, 1);
+              w = w + 5
 
+        }
+        if(balls[i].loc.y < (paddle.loc.y + h) && balls.vel.y === 400) {
+          noLoop();
         }
       }
   }

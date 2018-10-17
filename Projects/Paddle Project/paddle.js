@@ -4,8 +4,8 @@ function Paddle(loc, clr2){
   // letiables for the function
   this.loc = loc; //location
   this.clr2 = clr2; //color (specifically for the paddle)
-  this.wid = 50;
-  this.ht =  10;
+  w = 50;
+  h =  12;
 
   // When the run function is called all of the other functions are called and runs
   this.run = function() {
@@ -22,7 +22,7 @@ function Paddle(loc, clr2){
   // Gives the object a shape and color
   this.render = function() {
     fill(this.clr2);
-    rect(this.loc.x, this.loc.y, this.wid, this.ht);
+    rect(this.loc.x, this.loc.y, w, h);
   }
 
 }
