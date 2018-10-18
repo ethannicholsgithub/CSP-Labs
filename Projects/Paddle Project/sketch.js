@@ -49,10 +49,10 @@
              balls.alive = false;
               w = w + 5 //when a ball touches the paddle the paddle
 
-        }
-        if(balls[i].loc.y < (paddle.loc.y + h) && balls[i].vel.y === 400) {
-          noLoop();
-        }
+        }   
+        // if(balls[i].loc.y < (paddle.loc.y + h) && balls[i].vel.y === 400) {
+        //   noLoop();
+        // }
       }
   }
 
