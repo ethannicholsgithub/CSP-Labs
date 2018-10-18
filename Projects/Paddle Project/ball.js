@@ -7,6 +7,7 @@ function Ball(loc, vel, clr) {
   this.clr = clr; //color
   radius = 10;
   this.acc = createVector(0, 0.1)
+  this.alive = true;
 
   // When the run function is called all of the other functions are called and runs
   this.run = function() {
@@ -40,5 +41,6 @@ function Ball(loc, vel, clr) {
     pop()
   }
 
-  
+
+
 }

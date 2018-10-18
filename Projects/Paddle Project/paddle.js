@@ -5,7 +5,7 @@ function Paddle(loc, clr2){
   this.loc = loc; //location
   this.clr2 = clr2; //color (specifically for the paddle)
   w = 50;
-  h =  12;
+  h =  13;
 
   // When the run function is called all of the other functions are called and runs
   this.run = function() {

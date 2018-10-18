@@ -26,21 +26,31 @@
     for (let i = 0; i < balls.length; i++) {
       balls[i].run();
     }
+    //calls checkCollision function
     checkCollision();
+    //splice out dead balls
+    for(let i = balls.length - 1; i >= 0; i--){
+      if(balls.alive = false){
+          balls[i].splice(i, 1); // deletes ball from array
+      }
+    }
   }
 
+//function to check if balls ore touching the paddle
     function checkCollision() {
-      for(let i = 0; i < balls.length; i++) {
+      for(let i = balls.length - 1; i >= 0; i--) {
+        balls.alive = true;
         if(balls[i].loc.x > paddle.loc.x &&
-          balls[i].loc.x < (paddle.loc.x + w) &&
-          balls[i].loc.y > (paddle.loc.y) &&
-          balls[i].loc.y < (paddle.loc.y + h)) {
+           balls[i].loc.x < (paddle.loc.x + w) &&
+           balls[i].loc.y > (paddle.loc.y) &&
+           balls[i].loc.y < (paddle.loc.y + h)) {
 
-              balls.splice(i, 1);
-              w = w + 5
+             //check if balls are alive or dead
+             balls.alive = false;
+              w = w + 5 //when a ball touches the paddle the paddle
 
         }
-        if(balls[i].loc.y < (paddle.loc.y + h) && balls.vel.y === 400) {
+        if(balls[i].loc.y < (paddle.loc.y + h) && balls[i].vel.y === 400) {
           noLoop();
         }
       }
