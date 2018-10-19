@@ -1,5 +1,6 @@
   var balls = [];
   var paddle;
+  var n = 50;
 
   function setup() {
     // hides mouse
@@ -11,9 +12,8 @@
     fill(200, 30, 150);
 
     //these two lines define how many balls to load
-    let n = 50;
-    loadBalls(n);
-    loadPaddle(1);
+    loadBalls(10);
+    loadPaddle(n);
   }
 
   function draw() {
@@ -26,36 +26,25 @@
     for (let i = 0; i < balls.length; i++) {
       balls[i].run();
     }
-    //calls checkCollision function
-    checkCollision();
-    //splice out dead balls
-    for(let i = balls.length - 1; i >= 0; i--){
-      if(balls.alive = false){
-          balls[i].splice(i, 1); // deletes ball from array
+
+    for(let i = balls.length - 1; i >= 0; i--) {
+      if(balls[i].colliding()) {
+
+        if(  balls[i].vel.y < 0){
+          n = n + 10
+          loadBalls(n);
+        }else{
+          balls.splice(i , 1);
+          w = w + 5;
+          if(balls.length === 0){
+            n = n + 10
+            loadBalls(n);
+          }
+        }
+
       }
     }
-  }
-
-//function to check if balls ore touching the paddle
-    function checkCollision() {
-      for(let i = balls.length - 1; i >= 0; i--) {
-        balls.alive = true;
-        if(balls[i].loc.x > paddle.loc.x &&
-           balls[i].loc.x < (paddle.loc.x + w) &&
-           balls[i].loc.y > (paddle.loc.y) &&
-           balls[i].loc.y < (paddle.loc.y + h)) {
-
-             //check if balls are alive or dead
-             balls.alive = false;
-              w = w + 5 //when a ball touches the paddle the paddle
-
-        }   
-        // if(balls[i].loc.y < (paddle.loc.y + h) && balls[i].vel.y === 400) {
-        //   noLoop();
-        // }
-      }
-  }
-
+}
   //defines loadBalls
   function loadBalls(numBalls) {
     for (let i = 0; i < numBalls; i++) {

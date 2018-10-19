@@ -5,7 +5,7 @@ function Ball(loc, vel, clr) {
   this.loc = loc; //location
   this.vel = vel; //velocity
   this.clr = clr; //color
-  radius = 10;
+  radius = 50;
   this.acc = createVector(0, 0.1)
   this.alive = true;
 
@@ -31,6 +31,20 @@ function Ball(loc, vel, clr) {
     this.loc.y = this.loc.y + this.vel.y;
     this.vel.add(this.acc);
     this.loc.add(this.vel);
+  }
+
+  this.colliding = function() {
+    if(this.loc.x > paddle.loc.x &&
+       this.loc.x < (paddle.loc.x + w) &&
+       this.loc.y > paddle.loc.y &&
+       this.loc.y < (paddle.loc.y + h)) {
+
+         return true;
+
+    }
+
+    return false;
+
   }
 
   // Gives the object a shape and color
