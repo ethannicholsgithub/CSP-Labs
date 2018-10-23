@@ -40,14 +40,19 @@ function draw() {
 
       }else{
         balls.splice(i , 1);
-        score = score + 1;
+        score = score + 265426;
         w = w + 5;
         if(balls.length === 0){
 
-          if(score > 300){
+          if(score > 500){
             textSize(32);
             fill(255, 255, 255);
             text("You Win!" , 400, 400);
+          }
+          if(score < 500) {
+            textSize(32);
+            fill(255, 255, 255);
+            text("Nice job but try to get 500 points" , 400, 350);
           }
           noLoop();
         }
