@@ -14,15 +14,19 @@ function setup() {
     nums.push(Math.floor(random(1, 100)))
   }
   console.log(nums);
-  if(nums[0] > nums[1]){
-    var temp = nums[0];
-    nums[0] = nums[1];
-    nums[1] = temp;
+  for(var i = 0; i < nums.length; i++){
+    for(var j = 0; j < nums.length; j++){
+      if(nums[j] > nums[j + 1]){
+        var temp = nums[j];
+        nums[j] = nums[j + 1];
+        nums[j] = temp;
+      }
+      console.log(nums);
+    }
   }
-  console.log(nums);
+
 
 }
 //  The draw function is called @ 30 fps
 function draw() {
-
 }
