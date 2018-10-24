@@ -1,4 +1,3 @@
-
 //  This is a comment
 //  The setup function function is called once when your program begins
 function setup() {
@@ -7,25 +6,22 @@ function setup() {
   background(5, 5, 5);
   fill(200, 30, 150);
 
-  nums = [];
+  var txt = loadStrings('words.txt');
+  console.log(txt);
 
-  var n = 10
-  for(var i = 0; i < n; i++){
-    nums.push(Math.floor(random(1, 100)))
-  }
-  console.log(nums);
-  for(var i = 0; i < nums.length; i++){
-    for(var j = 0; j < nums.length; j++){
-      if(nums[j] > nums[j + 1]){
-        var temp = nums[j];
-        nums[j] = nums[j + 1];
-        nums[j] = temp;
+  words = [];
+
+  console.log(words);
+  for(var i = words.length - 1; i>= 1; i--){
+    for(var j = 0; j < words.length; j++){
+      if(words[j] > words[j + 1]){
+        var temp = words[j];
+        words[j] = words[j + 1];
+        words[j + 1] = temp;
       }
-      console.log(nums);
+      //console.log(words);
     }
   }
-
-
 }
 //  The draw function is called @ 30 fps
 function draw() {
