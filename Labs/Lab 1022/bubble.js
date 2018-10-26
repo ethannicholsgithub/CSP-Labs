@@ -6,10 +6,14 @@ function setup() {
   background(5, 5, 5);
   fill(200, 30, 150);
 
-  var txt = loadStrings('words.txt');
-  console.log(txt);
+
+  //console.log(txt);
 
   words = [];
+
+  function preload(){
+    var txt = loadStrings('words.txt');
+  }
 
   console.log(words);
   for(var i = words.length - 1; i>= 1; i--){
@@ -19,7 +23,7 @@ function setup() {
         words[j] = words[j + 1];
         words[j + 1] = temp;
       }
-      //console.log(words);
+      console.log(words);
     }
   }
 }
