@@ -1,16 +1,15 @@
+function Bars(loc, r, g, b, col) {
+  this.loc = loc;
+  this.r = random(0, 255);
+  this.g = random(0, 255);
+  this.b = random(0, 255);
+  this.col = col;
 
-//  This is a comment
-//  The setup function function is called once when your program begins
-function setup() {
-  var cnv = createCanvas(800, 800);
-  cnv.position((windowWidth-width)/2, 30);
-  background(5, 5, 5);
-  fill(200, 30, 150);
+  this.bar = function(){
+    rect(10, 10, 10, 10);
+  }
 
-
-}
-
-//  The draw function is called @ 30 fps
-function draw() {
-
+  this.run = function(){
+    this.bar();
+  }
 }
