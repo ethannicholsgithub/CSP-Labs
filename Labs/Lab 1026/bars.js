@@ -1,17 +1,16 @@
-function Bars(loc, r, g, b, col) {
+function colorbar(loc, w, h, clr){
   this.loc = loc;
-  this.r = random(0, 255);
-  this.g = random(0, 255);
-  this.b = random(0, 255);
-  this.col = color(this.r, this.g, this.b);
-
-  this.bar = function(){
-    fill(this.col);
-    console.log(this.color);
-    rect(10, 10, 10, 10);
-  }
+  this.w = w;
+  this.h = h;
+  this.clr = clr;
 
   this.run = function(){
-    this.bar();
+    this.render();
   }
+
+  this.render = function(){
+    fill(this.clr);
+    rect(this.loc.x, this.loc.y, this.w, this.h);
+  }
+
 }
