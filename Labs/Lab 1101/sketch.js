@@ -11,7 +11,8 @@ function setup() {
   background(5, 5, 5);
   fill(200, 30, 150);
 
-  console.log(data.cards[0].name);
+  data.cards[0].name
+  console.log();
 
 }
 
