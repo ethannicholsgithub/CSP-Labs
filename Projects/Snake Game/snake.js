@@ -9,8 +9,8 @@ function Snake(loc, vel, col){
   }
 
   this.render = function(){
+    rect(400, 400, 25, 25);
     fill(this.col);
-    rect(this.loc.x, this.loc.y, 25, 25);
   }
 
   this.run = function(){
