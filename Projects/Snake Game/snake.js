@@ -16,6 +16,7 @@ function Snake(loc, vel, col){
   this.run = function(){
     this.update();
     this.render();
+    this.checkEdges();
   }
 
   function checkEdges(){
