@@ -18,8 +18,6 @@ function setup() {
 
 //  The draw function is called @ 30 fps
 function draw() {
-  //call the checkEdges
-  checkEdges();
   //call the control function
   control();
 }
@@ -34,10 +32,6 @@ function eatFood(){
 
 }
 
-//function to check edges of Snake
-function checkEdges(){
-  //if snake does touch an edge then snake dies and game over
-}
 
 //create control function so that the player can control the Snake
 function control(){
@@ -50,8 +44,8 @@ function control(){
 //create function
 function createSnake(loc, vel, col){
   //define perameters
-  loc = createVector(10 , 10);
-  vel = createVector(0 , 0);
+  loc = createVector(width / 2 , height / 2);
+  vel = createVector(1 , 0);
   col = color(255)
   //create a new snake
   b = new Snake(loc, vel, col);
