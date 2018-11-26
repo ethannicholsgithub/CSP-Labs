@@ -1,25 +1,27 @@
 //sanke array
-var snake = [];
+var snake;
 //snake segments array
-var w = 20
+var w = 2;
 
 function setup() {
-  var cnv = createCanvas(800, 800);
-  cnv.position((windowWidth-width)/2, 30);
-  background(5, 5, 5);
-  fill(200, 30, 150);
-
-  //for lood of the Snake
-  for(var i = 0; i < snake.length; i++){
-    //run the snake function with things inside the array
-    snake[i].run();
-  }
+    frameRate(10);
+    var cnv = createCanvas(800, 800);
+    cnv.position(windowWidth-width)/(2, 30);
+    background(20, 20, 20);
+    cols = width/w;
+    rows = height/w;
+    var col = color(255, 255, 255);
+    var loc = createVector(width/2, height/2);
+    var vel = createVector(1, 0);
+    snake = new Snake(loc, vel);
 }
 
 //  The draw function is called @ 30 fps
 function draw() {
+  background(0, 0, 0);
+  snake.run();
   //call the control function
-  control();
+  keyPressed();
 }
 
 //create segments function to add segments to the Snake
@@ -34,21 +36,25 @@ function eatFood(){
 
 
 //create control function so that the player can control the Snake
-function control(){
+function keyPressed(){
   //if function for if UPARROW is pressed
+  if(keyCode === UP_ARROW){
+    snake.loc.add(snake.vel);
+    snake.vel = createVector(0, -w);
+  }
   //if function for if DOWNARROW is pressed
+  if(keyCode === DOWN_ARROW){
+    snake.loc.add(snake.vel);
+    snake.vel = createVector(0, w);
+  }
   //if function for if RIGHTARROW is pressed
+  if(keyCode === RIGHT_ARROW){
+    snake.loc.add(snake.vel);
+    snake.vel = createVector(w, 0);
+  }
   //if function for if LEFTARRROW is pressed POGGGGG
-}
-
-//create function
-function createSnake(loc, vel, col){
-  //define perameters
-  loc = createVector(width / 2 , height / 2);
-  vel = createVector(1 , 0);
-  col = color(255)
-  //create a new snake
-  b = new Snake(loc, vel, col);
-  //push the snake into the snake array
-  snake.push(b);
+  if(keyCode === LEFT_ARROW){
+    snake.loc.add(snake.vel);
+    snake.vel = createVector(-w, 0);
+  }
 }
