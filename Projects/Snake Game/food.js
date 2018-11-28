@@ -1,7 +1,6 @@
-function Foods(loc, vel){
+function Foods(loc){
 
   this.loc = loc;
-  this.vel = vel;
 
   this.run = function(){
     this.update();
@@ -15,6 +14,7 @@ function Foods(loc, vel){
 
   this.render2 = function(){
     rect(this.loc.x, this.loc.y, w, w);
+    fill(color(0, 255, 0));
   }
 
 }
