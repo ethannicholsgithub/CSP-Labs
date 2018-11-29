@@ -22,15 +22,8 @@ function Snake(loc, vel, col){
 
   this.render = function(){
     rect(this.loc.x, this.loc.y, w, w);
-    fill(color(255, 0, 0));
   }
 
-  //create event function where once snake touches food for   F   U   E   L  that returns a true or false
-  function eatFood(){
-    if(this.loc.y == food.loc.y && this.loc.x == food.loc.x){
-      console.log("food");
-    }
-  }
 
   //create segments function to add segments to the Snake
   function segments(){

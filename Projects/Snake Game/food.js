@@ -1,20 +1,15 @@
-function Foods(loc){
+function Foods(loc, col2){
 
   this.loc = loc;
+  this.col2 = col2
 
   this.run = function(){
-    this.update();
-    this.render2();
+    this.render();
   }
 
-  this.update = function(){
-    this.loc.x = constrain(this.loc.x, 0, width-w)
-    this.loc.y = constrain(this.loc.y, 0, width-w)
-  }
-
-  this.render2 = function(){
-    rect(this.loc.x, this.loc.y, w, w);
-    fill(color(0, 255, 0));
+  this.render = function(){
+    noStroke();
+    rect(this.loc.x, this.loc.y, 20, 20);
   }
 
 }
