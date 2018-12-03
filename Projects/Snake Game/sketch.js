@@ -3,8 +3,7 @@ var snake;
 
 var food = [];
 
-var body = [];
-var numBod = 1
+var numSeg = 1;
 
 var w = 20;
 var speed = 20;
@@ -17,7 +16,6 @@ function setup() {
 
   loadFood(1);
   loadSnake();
-  loadBody(numBod);
 
   cols = width/w;
   rows = height/w;
@@ -32,18 +30,14 @@ function draw() {
     food[i].run();
   }
 
-  for(var i = 0; i < body.length; i++){
-    body[i].run();
-  }
-
   collide();
-  follow();
 
 }
 
 function loadSnake(){
   var loc = createVector(200, 200);
   var vel = createVector(0, 0);
+  var col = color(255, 0, 0);
   snake = new Snake(loc, vel);
 }
 
@@ -64,30 +58,10 @@ function collide(){
     var distY = food[i].loc.y - snake.loc.y;
     if(distX == 0 && distY == 0){
       food.splice(i, 1);
-      numBod = numBod + 1;
       loadFood(1);
     }
   }
 }
-
-function loadBody(numBod){
-  var loc = createVector(0 , 0);
-  b = new Segments(loc)
-}
-
-//create segments function to add segments to the Snake
- function follow(){
-   for(var i = 0; i < body.length; i++){
-     body[i].x = snake.loc.x - w;
-     body[i].y = snake.loc.y - w;
-
-     if(body.length >= 2){
-       body[i - 1].x = snake.loc.x - w;
-       body[i - 1].y = snake.loc.y - w;
-     }
-   }
-}
-
 
 
 //create control function so that the player can control the Snake
