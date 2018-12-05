@@ -5,20 +5,16 @@ function Snake(loc, vel, col){
   this.col = col;
   this.segments = [];
   this.segments.push(createVector(0, 0));
-
+  var headLoc = createVector(this.loc.x, this.loc.y);
 
   this.run = function(){
-    this.update();
     this.render();
+    this.update();
   }
 
   this.update = function(){
-    var headLoc = createVector(this.loc.x, this.loc.y);
     this.segments.push(headLoc);
-    if(this.segments.length > this.length) {
-      var remove = this.segments.shift();
-      fill(0, 0, 0);
-      rect(remove.x, remove.y, w, w);
+
     }
 
     this.loc.add(this.vel);
@@ -27,7 +23,6 @@ function Snake(loc, vel, col){
   }
 
   this.render = function(){
-    fill(0,255,0);
-    rect(this.loc.x, this.loc.y, w, w)
+    fill(this.col);
+    rect(this.loc.x, this.loc.y, 0, 0);
   }
-}

@@ -1,9 +1,7 @@
 //sanke variable
 var snake;
 
-var food = [];
-
-var numSeg = 1;
+var food;
 
 var w = 20;
 var speed = 20;
@@ -14,8 +12,13 @@ function setup() {
   cnv.position(windowWidth-width)/(2, 30);
   background(20, 20, 20);
 
-  loadFood(1);
-  loadSnake();
+  var loc = createVector(200, 200);
+  var vel = createVector(0, 0);
+  var col = color(0, 255, 0);
+  snake = new Snake(loc, vel, col);
+
+  var col2 = color(255, 0, 0);
+  food = new Foods(loc, col2);
 
   cols = width/w;
   rows = height/w;
@@ -26,17 +29,17 @@ function draw() {
   background(0, 0, 0);
 
   snake.run();
-  for(var i = 0; i < food.length; i++){
-    food[i].run();
-  }
+  food.run();
 
-  collide();
+  // call collide whenever snake touches Foods
+  if(headLoc = food.loc){
+    collide();
+  }
 
 }
 
 function loadSnake(){
   var loc = createVector(200, 200);
-  var vel = createVector(0, 0);
   var col = color(255, 0, 0);
   snake = new Snake(loc, vel);
 }
@@ -59,6 +62,7 @@ function collide(){
     if(distX == 0 && distY == 0){
       food.splice(i, 1);
       loadFood(1);
+      snake.segments.push(createVector(0, 0));
     }
   }
 }
