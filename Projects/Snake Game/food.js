@@ -4,11 +4,11 @@ function Foods(loc, col2){
   this.col2 = col2
 
   this.run = function(){
-    this.render();
+    this.bender();
   }
 
-  this.render = function(){
-    noStroke();
+  this.bender = function(){
+    fill(this.col2);
     rect(this.loc.x, this.loc.y, 20, 20);
   }
 
