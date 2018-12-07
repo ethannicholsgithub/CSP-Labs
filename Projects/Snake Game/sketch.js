@@ -16,10 +16,10 @@ function setup() {
   var col2 = color(255, 0, 0);
   food = new Foods(loc, col2);
 
-  var loc = createVector(200, 200);
+  var headloc = createVector(200, 200);
   var vel = createVector(20, 0);
   var col = color(0, 255, 0);
-  snake = new Snake(loc, vel, col);
+  snake = new Snake(headloc, vel, col);
 
 
   cols = width/w;
@@ -33,22 +33,22 @@ function draw() {
   snake.run();
   food.run();
 
-
+  //test to see if snake ate
 }
 
 
-//create event function where once snake touches food for   F   U   E   L  that returns a true or false
-function collide(){
-  for(var i = 0; i < food.length; i++){
-    var distX = food[i].loc.x - snake.loc.x;
-    var distY = food[i].loc.y - snake.loc.y;
-    if(distX == 0 && distY == 0){
-      food.splice(i, 1);
-      loadFood(1);
-      snake.segments.push(createVector(0, 0));
-    }
-  }
-}
+// //create event function where once snake touches food for   F   U   E   L  that returns a true or false
+// function collide(){
+//   for(var i = 0; i < food.length; i++){
+//     var distX = food[i].loc.x - snake.loc.x;
+//     var distY = food[i].loc.y - snake.loc.y;
+//     if(distX == 0 && distY == 0){
+//       food.splice(i, 1);
+//       loadFood(1);
+//       snake.segments.push(createVector(0, 0));
+//     }
+//   }
+// }
 
 
 //create control function so that the player can control the Snake
