@@ -25,12 +25,15 @@ function Snake(headloc, vel, col){
     this.headloc.x = constrain(this.headloc.x, 0, width-w);
     this.headloc.y = constrain(this.headloc.y, 0, width-w);
 
-    //
+    if(headloc = this.segments.loc){
+    }
 
 
     //once snake eats food then add a segment and move food location
     if(this.headloc.dist(food.loc) === 0){
       this.segments.push(createVector(0,0));
+      food.loc = createVector(width / 2 - Math.floor(Math.random()*16-8)*w, height / 2+Math.floor(Math.random()*12-6)*w);
+      console.log("dead");
     }
   }
 
