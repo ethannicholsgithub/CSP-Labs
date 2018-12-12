@@ -14,18 +14,24 @@ function Snake(headloc, vel, col){
   }
 
   this.update = function(){
+    //set the first
     this.segments[0].x = this.headloc.x
     this.segments[0].y = this.headloc.y
+
     for(var i = this.segments.length - 1; i >= 1; i--){
       this.segments[i].x = this.segments[i - 1].x;
       this.segments[i].y = this.segments[i - 1].y;
-
     }
     this.headloc.add(this.vel);
     this.headloc.x = constrain(this.headloc.x, 0, width-w);
     this.headloc.y = constrain(this.headloc.y, 0, width-w);
 
-    if(headloc = this.segments.loc){
+    //for loop checking each segment in the segment array
+    for(i = 0; i < segments.length; i++){
+      //if stament checking if the locations are equal to each other
+      if(headloc = segments[i].loc){
+        //restart
+      }
     }
 
 

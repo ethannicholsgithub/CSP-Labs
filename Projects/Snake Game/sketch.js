@@ -33,23 +33,13 @@ function draw() {
   snake.run();
   food.run();
 
-  //test to see if snake ate
 }
 
-
-// //create event function where once snake touches food for   F   U   E   L  that returns a true or false
-// function collide(){
-//   for(var i = 0; i < food.length; i++){
-//     var distX = food[i].loc.x - snake.loc.x;
-//     var distY = food[i].loc.y - snake.loc.y;
-//     if(distX == 0 && distY == 0){
-//       food.splice(i, 1);
-//       loadFood(1);
-//       snake.segments.push(createVector(0, 0));
-//     }
-//   }
-// }
-
+function restart(){
+  snake.segments = [];
+  food.loc = createVector(width / 2 - Math.floor(Math.random()*16-8)*w, height / 2+Math.floor(Math.random()*12-6)*w);
+  snake.loc = createVector(200, 200);
+}
 
 //create control function so that the player can control the Snake
 function keyPressed(){
