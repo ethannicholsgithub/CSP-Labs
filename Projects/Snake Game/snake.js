@@ -27,10 +27,12 @@ function Snake(headloc, vel, col){
     this.headloc.y = constrain(this.headloc.y, 0, width-w);
 
     //for loop checking each segment in the segment array
-    for(i = 0; i < segments.length; i++){
+    for(i = 0; i < this.segments.length; i++){
       //if stament checking if the locations are equal to each other
-      if(headloc = segments[i].loc){
+      if(this.headloc.x == this.segments[i].x && this.headloc.y == this.segments[i].y){
         //restart
+        //restart();
+        console.log("dead");
       }
     }
 
@@ -38,8 +40,11 @@ function Snake(headloc, vel, col){
     //once snake eats food then add a segment and move food location
     if(this.headloc.dist(food.loc) === 0){
       this.segments.push(createVector(0,0));
-      food.loc = createVector(width / 2 - Math.floor(Math.random()*16-8)*w, height / 2+Math.floor(Math.random()*12-6)*w);
-      console.log("dead");
+      for(i = 0; i < this.segments.length; i++){
+        if(food.loc != this.segments[i].loc){
+          food.loc = createVector(width / 2 - Math.floor(Math.random()*16-8)*w, height / 2+Math.floor(Math.random()*12-6)*w);
+        }
+      }
     }
   }
 

@@ -21,9 +21,9 @@ function setup() {
   var col = color(0, 255, 0);
   snake = new Snake(headloc, vel, col);
 
-
   cols = width/w;
   rows = height/w;
+  
 }
 
 //  The draw function is called @ 30 fps
@@ -35,11 +35,15 @@ function draw() {
 
 }
 
+
 function restart(){
   snake.segments = [];
   food.loc = createVector(width / 2 - Math.floor(Math.random()*16-8)*w, height / 2+Math.floor(Math.random()*12-6)*w);
   snake.loc = createVector(200, 200);
 }
+
+
+
 
 //create control function so that the player can control the Snake
 function keyPressed(){
