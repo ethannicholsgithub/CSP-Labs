@@ -23,7 +23,7 @@ function setup() {
 
   cols = width/w;
   rows = height/w;
-  
+
 }
 
 //  The draw function is called @ 30 fps
