@@ -13,12 +13,12 @@ function setup() {
   background(20, 20, 20);
 
   var loc = createVector(width / 2 - Math.floor(Math.random()*16-8)*w, height / 2+Math.floor(Math.random()*12-6)*w);
-  var col2 = color(255, 0, 0);
+  var col2 = color(0, 0, 0);
   food = new Foods(loc, col2);
 
   var headloc = createVector(200, 200);
   var vel = createVector(20, 0);
-  var col = color(0, 255, 0);
+  var col = color(0, 0, 0);
   snake = new Snake(headloc, vel, col);
 
   cols = width/w;
@@ -28,7 +28,7 @@ function setup() {
 
 //  The draw function is called @ 30 fps
 function draw() {
-  background(0, 0, 0);
+  background(0, 204, 102);
 
   snake.run();
   food.run();

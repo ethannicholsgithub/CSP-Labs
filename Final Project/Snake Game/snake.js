@@ -50,6 +50,7 @@ function Snake(headloc, vel, col){
 
   this.render = function(){
     fill(this.col);
+    stroke(0, 204, 102);
     rect(this.headloc.x, this.headloc.y, w, w);
     for(var i = 1; i <= this.segments.length - 1; i++){
       rect(this.segments[i].x, this.segments[i].y, w, w);
