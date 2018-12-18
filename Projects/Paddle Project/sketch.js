@@ -2,7 +2,6 @@ var balls = [];
 var paddle;
 var n = 50;
 var score = 0;
-var win = false
 function setup() {
   // hides mouse
   noCursor();
